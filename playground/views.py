@@ -71,7 +71,7 @@ def handlelogin(request):
             return redirect('home')
         
     return HttpResponse('404 - Not Found')
-       
+
 def handlelogout(request):
     if request.method == "POST":
         logout(request)
@@ -102,8 +102,9 @@ def hotel_booking(request):
         night = request.POST['night']
         phone = request.POST['phone']
         srno = request.POST['srno']
-        print(name, night, phone, srno)
-        booking = hotelbooking(name = name, night = night, phone = phone, srno = srno)
+        room = request.POST['room']
+        print(name, night, phone, srno, room)
+        booking = hotelbooking(name = name, night = night, phone = phone, srno = srno, room= room)
         booking.save()
         messages.success(request, "Booking Confirmed")
         return redirect('hotel')

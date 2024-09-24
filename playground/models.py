@@ -30,6 +30,7 @@ class hotelbooking(models.Model):
     sno = models.AutoField(primary_key=True)
     name = models.CharField(max_length=225)
     srno = models.IntegerField(default=0)
+    room = models.IntegerField(default=0)
     night = models.IntegerField()
     phone = models.CharField(max_length=13)
     timestamp = models.DateTimeField(default=timezone.now)
